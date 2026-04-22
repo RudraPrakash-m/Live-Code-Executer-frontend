@@ -54,18 +54,30 @@ const CodeEditor = ({
   }, [remoteCursors]);
 
   return (
-    <Editor
-      height="500px"
-      language={language}
-      theme="vs-dark"
-      value={code}
-      onChange={(value) => onChange(value)}
-      onMount={handleMount}
-      options={{
-        fontSize: 14,
-        minimap: { enabled: false },
-      }}
-    />
+    <div className="bg-gray-900 rounded-xl overflow-hidden border border-gray-700 shadow-lg">
+      {/* Header */}
+      <div className="flex justify-between items-center px-4 py-2 bg-gray-800 border-b border-gray-700">
+        <span className="text-sm text-gray-300 font-medium">Code Editor</span>
+        <span className="text-xs text-gray-400 uppercase">{language}</span>
+      </div>
+
+      {/* Editor */}
+      <Editor
+        height="500px"
+        language={language}
+        theme="vs-dark"
+        value={code}
+        onChange={(value) => onChange(value)}
+        onMount={handleMount}
+        options={{
+          fontSize: 14,
+          minimap: { enabled: false },
+          smoothScrolling: true,
+          padding: { top: 10 },
+          cursorSmoothCaretAnimation: "on",
+        }}
+      />
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import EditorPage from "./pages/EditorPage";
+import "./index.css"
 
 function App() {
   return (

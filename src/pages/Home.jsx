@@ -14,7 +14,6 @@ const Home = () => {
     }
 
     const id = Math.random().toString(36).substring(2, 8);
-
     navigate(`/editor/${id}?name=${name}`);
   };
 
@@ -33,40 +32,44 @@ const Home = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "120px" }}>
-      <h1>Collaborative Code Editor</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+      <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md text-center">
+        <h1 className="text-3xl font-bold mb-6">Collaborative Code Editor</h1>
 
-      <div style={{ marginTop: "40px" }}>
+        {/* Name Input */}
         <input
           type="text"
           placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{ padding: "10px", marginRight: "10px" }}
+          className="w-full p-3 mb-4 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-      </div>
 
-      <div style={{ marginTop: "20px" }}>
+        {/* Room Input */}
         <input
           type="text"
           placeholder="Enter Room ID"
           value={roomId}
           onChange={(e) => setRoomId(e.target.value)}
-          style={{ padding: "10px", marginRight: "10px" }}
+          className="w-full p-3 mb-6 rounded-lg bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-      </div>
 
-      <div style={{ marginTop: "30px" }}>
-        <button
-          onClick={createRoom}
-          style={{ marginRight: "10px", padding: "10px 20px" }}
-        >
-          Create Room
-        </button>
+        {/* Buttons */}
+        <div className="flex gap-4">
+          <button
+            onClick={createRoom}
+            className="w-1/2 bg-blue-600 hover:bg-blue-700 transition px-4 py-2 rounded-lg font-semibold"
+          >
+            Create Room
+          </button>
 
-        <button onClick={joinRoom} style={{ padding: "10px 20px" }}>
-          Join Room
-        </button>
+          <button
+            onClick={joinRoom}
+            className="w-1/2 bg-green-600 hover:bg-green-700 transition px-4 py-2 rounded-lg font-semibold"
+          >
+            Join Room
+          </button>
+        </div>
       </div>
     </div>
   );
