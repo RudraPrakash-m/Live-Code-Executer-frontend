@@ -23,12 +23,12 @@ const EditorPage = () => {
 
   // Auto-save
   useEffect(() => {
-    const saved = localStorage.getItem("code");
-    if (saved) setCode(saved);
+    // const saved = localStorage.getItem("code");
+    // if (saved) setCode(saved);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("code", code);
+    // localStorage.setItem("code", code);
   }, [code]);
 
   useEffect(() => {
